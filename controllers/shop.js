@@ -38,6 +38,13 @@ exports.getCart = (req, res) => {
   });
 };
 
+
+exports.postCart = (req, res) => {
+  const {productId} = req.body;
+  console.log(productId);
+  res.redirect('/cart')
+}
+
 exports.getCheckout = (req, res) => {
   res.render("shop/checkout", {
     title: "checkout",
