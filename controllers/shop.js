@@ -38,12 +38,11 @@ exports.getCart = (req, res) => {
   });
 };
 
-
 exports.postCart = (req, res) => {
-  const {productId} = req.body;
+  const { productId } = req.body;
   console.log(productId);
-  res.redirect('/cart')
-}
+  res.redirect("/cart");
+};
 
 exports.getCheckout = (req, res) => {
   res.render("shop/checkout", {

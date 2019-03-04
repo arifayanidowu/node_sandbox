@@ -132,13 +132,13 @@ main {
   border-radius: 3px;
   width: 100%;
   padding: 1rem 2rem;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   font-family: inherit;
 }
 
 .form-control:focus,
 textarea:focus {
-  box-shadow: 0 0 6px var(--primary-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 textarea {
@@ -146,7 +146,7 @@ textarea {
   border-radius: 3px;
   width: 100%;
   padding: 1rem 0.5rem;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   font-family: inherit;
 }
 .form-control::placeholder,

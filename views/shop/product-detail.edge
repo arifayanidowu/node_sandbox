@@ -11,10 +11,7 @@
     </div>
       <h2 class="mt-1"><span class="text-light">Price: </span>${{product.price}}</h2>
       <p class="mb-1"><span class="text-light">Description: </span>{{product.description}}</p>
-      <form action="/cart" method="POST">
-        <button type="submit" class="btn">Add to cart</button>
-        <input type="hidden" name="productId" value="{{ product.id }}">
-      </form>
+      @include('inc.add-to-cart')
   </div>
 @endsection
 
