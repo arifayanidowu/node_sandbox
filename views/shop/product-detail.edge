@@ -1,0 +1,19 @@
+@layout('layouts/master')
+
+@section('content')
+  <div class="align-center">
+    <h1>{{product.title}}</h1>
+    <div class="hr"></div>
+    <div class="align-center">
+      <div class="thumbnail-img">
+        <img src="{{product.imageUrl}}" alt="{{product.title}}">
+      </div>
+    </div>
+      <h2>${{product.price}}</h2>
+      <p>{{product.description}}</p>
+      <form action="/cart" method="POST">
+        <button type="submit" class="btn">Add to cart</button>
+      </form>
+  </div>
+@endsection
+

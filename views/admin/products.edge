@@ -1,0 +1,36 @@
+@layout('layouts/master')
+
+@section('content')
+  <h1>My Products</h1>
+  <p>List of all the products...</p>
+
+  @if(products.length === 0)
+  
+  <small>&mdash; No products to display</small>
+
+  @else
+  <div class="container">
+    @each(product in products)
+    <article class="card product">
+        <div class="card-image">
+          <img src="{{product.imageUrl}}" alt="{{product.title}}">
+        </div>
+        <div class="card-header">
+        <h1 class="card-title">Title: {{product.title}}</h1>
+      </div>
+        <div class="card-content">
+          <h2 class="product-price">Price: ${{product.price}}</h2>
+          <p class="product-description">{{product.description}}</p>
+        </div>
+
+        <div class="card-btn-group">
+          <a href="/admin/edit-product" class="edit-btn">Edit</a>
+          <form action="/admin/delete-product" method="POST">
+            <button class="delete-btn">Delete</button>
+          </form>
+        </div>
+      </article>
+    @endeach
+  </div>
+  @endif
+@endsection
