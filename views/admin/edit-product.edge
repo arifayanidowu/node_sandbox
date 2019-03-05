@@ -1,5 +1,58 @@
 @layout('layouts/master')
 
 @section('content')
-  <h1>Edit Product</h1>
+  @if(editing)
+    <h1 class="align-center text-light">Edit Product</h1>
+  @else
+    <h1 class="align-center text-light">Add Product</h1>
+  @endif
+  <div class="hr"></div>
+  @if(editing)
+    <form action="/admin/edit-product" method="POST" class="form">
+  @else
+  <form action="/admin/add-product" method="POST" class="form">
+  @endif
+    <div class="form-group">
+      <label for="title" class="form-label">Title:</label>
+      @if(editing)
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter Product..." value="{{product.title}}" /> 
+      @else       
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter Product..." />
+      @endif
+    </div>
+    <div class="form-group">
+      <label for="imageUrl" class="form-label">Image:</label>
+      @if(editing)
+      <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter Product..." value="{{product.imageUrl}}" />
+      @else      
+      <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter Product Image..." />
+      @endif
+    </div>
+    <div class="form-group">
+      <label for="price" class="form-label">Price:</label>
+      @if(editing)
+      <input type="text" class="form-control" id="price" name="price" placeholder="Enter Product..." value="{{product.price}}" />
+      @else
+      <input type="number" class="form-control" name="price" id="price" placeholder="Enter Product..." step="0.01" />
+      @endif
+    </div>
+    <div class="form-group">
+      <label for="description" class="form-label">Description:</label>
+      @if(editing)
+      <textarea name="description" id="description">{{product.description}}</textarea>
+      @else
+      <textarea name="description" id="description"></textarea>
+      @endif
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn">
+        @if(editing)
+          Update Product
+        <input type="hidden" value="{{product.id}}" name="productId">
+        @else
+          Add Product
+        @endif
+      </button>
+    </div>
+  </form>
 @endsection
